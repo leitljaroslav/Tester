@@ -6,7 +6,6 @@ public class Tester2 {
      * Vraci string
      */
     public String join(String a, String b) {
-
         return a + b;
     }
 
@@ -18,8 +17,8 @@ public class Tester2 {
      */
     public int count(String a, char letter) {
         int count = 0;
-        for (int i = 0; i <a.length(); i++){
-            if(letter == a.charAt(i)){
+        for (int i = 0; i < a.length(); i++) {
+            if (letter == a.charAt(i)) {
                 count++;
             }
         }
