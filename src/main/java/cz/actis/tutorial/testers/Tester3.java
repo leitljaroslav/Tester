@@ -11,7 +11,9 @@ public class Tester3 {
      * Argument je int
      * Vraci se int
      */
-
+    public static double square(int a) {
+        return Math.pow(a, 2);
+    }
 
 
     /**
@@ -19,7 +21,9 @@ public class Tester3 {
      * Argument je int a int
      * Vraci se int
      */
-
+    public static double power(int a, int b) {
+        return Math.pow(a, b);
+    }
 
     /**
      * Naimplementuj metodu sqrt, ktera spocita druhou odmocninu z argumentu/
@@ -27,7 +31,13 @@ public class Tester3 {
      * argument je int
      * Vraci se double
      */
-
+    public static double sqrt(int a) {
+        if (a >= 0) {
+            return Math.sqrt(a);
+        } else {
+            throw new InvalidArgumentException();
+        }
+    }
 
     /**
      * Naimplementuj metodu root, ktera spocita n-tou odmocninu z argumentu.
@@ -35,6 +45,11 @@ public class Tester3 {
      * argument je int a int
      * Vraci se double
      */
-
-
+    public static double root(int a, int b) {
+        if (a >= 0) {
+            return Math.pow(a, (double) 1 / b);
+        } else {
+            throw new InvalidArgumentException();
+        }
+    }
 }
