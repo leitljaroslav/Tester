@@ -25,7 +25,7 @@ class Tester2Spec extends Specification {
         String a = "12222133314441551"
 
         then:
-        tester2.count(a, '1' as char) == 4
+        tester2.count(a, '1' as char) == 5
         tester2.count(a, '2' as char) == 4
         tester2.count(a, '3' as char) == 3
         tester2.count(a, '4' as char) == 3
