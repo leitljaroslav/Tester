@@ -49,9 +49,9 @@ class Tester4Spec extends Specification {
 
         then:
         roots.size() == 2
-        roots[0].x == -1
+        roots[0].x == 6
         roots[0].y == 0
-        roots[1].x == 6
+        roots[1].x == -1
         roots[1].y == 0
 
         when:
