@@ -17,9 +17,10 @@ public class Tester1 {
      * Naimplementuj public metodu minus, ktera bude odecitat 2 cisla (a - b). Parametry budou int a int
      * Vracet se bude int
      */
-    public int minus(int a, int b){
+    public int minus(int a, int b) {
         return a - b;
     }
+
     /**
      * Zadani
      * Naimplementuj public metodu times, ktera bude nasobit 2 cisla. Parametry budou int a int
@@ -34,7 +35,7 @@ public class Tester1 {
      * Naimplementuj public metodu divide, ktera bude delit 2 cisla. Parametry budou int a int
      * Vracet se bude double
      */
-    public double divide(int a, int b){
+    public double divide(int a, int b) {
         return (double) a / (double) b;
     }
 
