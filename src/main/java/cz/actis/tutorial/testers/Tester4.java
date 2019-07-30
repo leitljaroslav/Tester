@@ -17,20 +17,27 @@ public class Tester4 {
      */
     public List<Point> solveQuadraticEquation(double a, double b, double c) {
         double d = b * b - (4 * a * c);
-        List<Point> roots = new ArrayList<>();
+        List<Point> root = new ArrayList<>();
         double y = 0;
         if (d > 0) {
             double x1 = (-b - Math.sqrt(d)) / (2 * a);
-            Point root1 = new Point(x1, y);
             double x2 = (-b + Math.sqrt(d)) / (2 * a);
-            Point root2 = new Point(x2, y);
-            roots.add(0, root1);
-            roots.add(1, root2);
+            if (x1 < x2) {
+                Point root1 = new Point(x1, y);
+                Point root2 = new Point(x2, y);
+                root.add(0, root1);
+                root.add(1, root2);
+            } else {
+                Point root1 = new Point(x1, y);
+                Point root2 = new Point(x2, y);
+                root.add(0, root2);
+                root.add(1, root1);
+            }
         } else if (d == 0) {
             double x3 = -b / (2 * a);
-            Point root = new Point(x3, y);
-            roots.add(0, root);
+            Point root0 = new Point(x3, y);
+            root.add(0, root0);
         }
-        return roots;
+        return root;
     }
 }
