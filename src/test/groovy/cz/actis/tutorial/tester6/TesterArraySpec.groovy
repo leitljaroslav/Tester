@@ -1,5 +1,6 @@
 package cz.actis.tutorial.tester6
 
+import cz.actis.tutorial.testers.TesterArray
 import spock.lang.Shared
 import spock.lang.Specification
 

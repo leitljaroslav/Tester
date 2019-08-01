@@ -1,4 +1,4 @@
-package cz.actis.tutorial.tester6;
+package cz.actis.tutorial.testers;
 
 public class TesterArray {
     /***
