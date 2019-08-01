@@ -37,7 +37,7 @@ public class Tester4 {
             double x3 = -b / (2 * a);
             Point root0 = new Point(x3, y);
             root.add(0, root0);
-        }
+        } // test komentare
         return root;
     }
 }
