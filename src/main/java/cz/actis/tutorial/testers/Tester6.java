@@ -42,7 +42,7 @@ public class Tester6 {
     }
 
     /**
-     }
+     * }
      * Zadani
      * Naimplementuj funkci writeRoots
      * Parametrem bude List<Point> a File
@@ -56,9 +56,9 @@ public class Tester6 {
         for (List<Point> points : list) {
             String output = "";
             if (points.size() == 2) {
-                output = String.format("x1=%2.5f;x2=%2.5f" , points.get(0).getX(), points.get(1).getX());
+                output = String.format("x1=%2.5f;x2=%2.5f", points.get(0).getX(), points.get(1).getX());
             } else if (points.size() == 1) {
-                output = String.format("x1=%2.5f;" , points.get(0).getX());
+                output = String.format("x1=%2.5f;", points.get(0).getX());
             } else {
                 output = "x1=NaN;";
             }
@@ -66,9 +66,6 @@ public class Tester6 {
         }
 
     }
-
-
-
 
 
 }
