@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Tester6 {
-    Tester4 tester4 = new Tester4();
+
 
     /**
      * Zadani
@@ -19,8 +19,30 @@ public class Tester6 {
      * Kazdy radek obsahuje hodnoty a, b a c oddělené středníky
      * Výstupem je List<List<Point>>
      */
+    public List<List<Point>> solveRoots(InputStream inputStream) throws IOException {
+        List<List<Point>> result = new ArrayList<>();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        while (true) {
+            line = bufferedReader.readLine();
+            if (line == null) {
+                break;
+            }
+            String[] parameters = line.split(";");
+            String valueA = parameters[0];
+            double a = Double.parseDouble(valueA);
+            String valueB = parameters[1];
+            double b = Double.parseDouble(valueB);
+            String valueC = parameters[2];
+            double c = Double.parseDouble(valueC);
+            Tester4 tester4 = new Tester4();
+            result.add(tester4.solveQuadraticEquation(a, b, c));
+        }
+        return result;
+    }
 
     /**
+     * }
      * Zadani
      * Naimplementuj funkci writeRoots
      * Parametrem bude List<Point> a File
@@ -29,5 +51,21 @@ public class Tester6 {
      * pro 1 koren:  "x1=%2.5f;"
      * pro 0 korenu: "x1=NaN;"
      */
+    public void writeRoots(List<List<Point>> list, File file) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        for (List<Point> points : list) {
+            String output = "";
+            if (points.size() == 2) {
+                output = String.format("x1=%2.5f;x2=%2.5f", points.get(0).getX(), points.get(1).getX());
+            } else if (points.size() == 1) {
+                output = String.format("x1=%2.5f;", points.get(0).getX());
+            } else {
+                output = "x1=NaN;";
+            }
+            writer.write(output);
+        }
+
+    }
+
 
 }
