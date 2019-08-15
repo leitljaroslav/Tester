@@ -1,9 +1,6 @@
 package cz.actis.tutorial.testers.tester5;
 
 import cz.actis.tutorial.testers.tester4.Point;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.text.DecimalFormat;
 
 public class Line2D {
     /**

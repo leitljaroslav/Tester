@@ -1,12 +1,9 @@
 package cz.actis.tutorial.testers;
 
 import cz.actis.tutorial.testers.tester4.Point;
-import cz.actis.tutorial.testers.utils.QuadraticEquation;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Tester6 {
@@ -23,6 +20,8 @@ public class Tester6 {
         List<List<Point>> result = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
+        Tester4 tester4 = new Tester4();
+
         while (true) {
             line = bufferedReader.readLine();
             if (line == null) {
@@ -35,7 +34,6 @@ public class Tester6 {
             double b = Double.parseDouble(valueB);
             String valueC = parameters[2];
             double c = Double.parseDouble(valueC);
-            Tester4 tester4 = new Tester4();
             result.add(tester4.solveQuadraticEquation(a, b, c));
         }
         return result;
@@ -54,7 +52,7 @@ public class Tester6 {
     public void writeRoots(List<List<Point>> list, File file) throws IOException {
         FileWriter writer = new FileWriter(file);
         for (List<Point> points : list) {
-            String output = "";
+            String output;
             if (points.size() == 2) {
                 output = String.format("x1=%2.5f;x2=%2.5f", points.get(0).getX(), points.get(1).getX());
             } else if (points.size() == 1) {
