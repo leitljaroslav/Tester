@@ -45,10 +45,11 @@ public class QuadraticEquation {
         return pointsOfFunction();
     }
 
-    private double      a;
-    private double      b;
-    private double      c;
-    public List<Point> solveQuadraticEquation(){
+    private double a;
+    private double b;
+    private double c;
+
+    public List<Point> solveQuadraticEquation() {
         double d = b * b - (4 * a * c);
         List<Point> root = new ArrayList<>();
         double y = 0;
@@ -75,17 +76,24 @@ public class QuadraticEquation {
     }
 
     public List<Point> pointsOfFunction() {
-        Point[] functionPoints = new Point[2500];
-        List<Point> roots = getRoots();
-        for (int i = 0; i < functionPoints.length; i++) {
-            if (roots.size() == 1 || roots.size() == 2) {
+        List<Point> functionPoints = new ArrayList<>();
+        if (a == 0) {
+            double x1 = 0;
+            for (int k = 0; k < 2500; k++) {
+                double temp1 = x1 + 0.01 * (k - 1250);
+                double y1 = (b * temp1) + c;
+                Point linearPoint = new Point(temp1,y1);
+                functionPoints.add(linearPoint);
+            }
+        } else {
+            for (int i = 0; i < 2500; i++) {
                 double xTop = -b / (2 * a);
-                double temp = xTop + 0.01 * (i - functionPoints.length/2);
+                double temp = xTop + 0.01 * (i - 1250);
                 double y = a * temp * temp + b * temp + c;
                 Point functionPoint = new Point(temp, y);
-                functionPoints[i] = functionPoint;
+                functionPoints.add(functionPoint);
             }
         }
-        return new ArrayList<>(Arrays.asList(functionPoints));
+        return functionPoints;
     }
 }
