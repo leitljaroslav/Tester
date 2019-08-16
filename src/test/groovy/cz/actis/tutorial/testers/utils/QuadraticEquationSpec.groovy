@@ -24,9 +24,9 @@ class QuadraticEquationSpec extends Specification {
         root[1].y == 0
 
         when:
-        a = -1
-        b = 5
-        c = 6
+        double a = -1
+        double b = 5
+        double c = 6
         quadraticEquation = new QuadraticEquation(a, b, c)
         root = quadraticEquation.solveQuadraticEquation()
         then:
@@ -88,56 +88,58 @@ class QuadraticEquationSpec extends Specification {
         then:
         root.size() == 0
     }
-
-    def "Solve points of quadratic function"() {
+    def "Solve linear function"() {
         setup:
-        double a = -1
-        double b = 5
-        double c = 6
-        quadraticEquation = new QuadraticEquation(a, b, c)
-        when:
-        List<Point> points = quadraticEquation.pointsOfFunction()
-        then:
-        points.size() == 1000
-        points[0].x == -6
-        points[0].y == -60
-        points[999].x == 3.99
-        points[999].y == 10.029900000000001
-        points[500].x == -1
-        points[500].y == 0
-        points[400].x == -2
-        points[400].y == -8
-        points[300].x == -3
-        points[300].y == -18
-        points[700].x == 1
-        points[700].y == 10
-
-    }
-
-    def "List of points test"() {
-        setup:
-        double a = 1
-        double b = 7
-        double c = 12
+        double a = 0
+        double b = 14
+        double c = 32
         quadraticEquation = new QuadraticEquation(a, b, c)
         when:
         List<Point> root = quadraticEquation.solveQuadraticEquation()
+        then:
+        root[0].getX() == -2.2857142857142856
+        root[0].getY() == 0
+    }
+    def "Get points of function"() {
+        setup:
+        double a = -10
+        double b = -49
+        double c = -31
+        quadraticEquation = new QuadraticEquation(a, b, c)
+        when:
         List<Point> points = quadraticEquation.pointsOfFunction()
         then:
-        root.size() == 2
-        root[0].getX() == -4
-        root[0].getY() == 0
-        root[1].getX() == -3
-        root[1].getY() == 0
-        points.size() == 1000
-        isEqual(points[0].getX() - points[1].getX(), -0.01)
-        points[0].getX() == -9
-        points[0].getY() == 30
-       Math.round( points[points.size() - 1].getX() * 100) / 100 == 0.99
-        points[points.size() - 1].getY() == 19.9101
+        points[0].getX() == -11.279999999999855
+        points[0].getY() == -750.6639999999746
+        points[points.size()/2].getX() == -2.4400000000000004
+        points[points.size()/2].getY() == 29.023999999999994
+        points[points.size()-1].getX() == 6.379999999999856
+        points[points.size()-1].getY() == -750.6639999999745
 
-    }
-    public boolean isEqual(double a, double b) {
-        return Math.round(a * 1000000) == Math.round(b * 1000000)
+        when:
+        a = 16
+        b = -36
+        c = -50
+        quadraticEquation = new QuadraticEquation(a, b, c)
+        points = quadraticEquation.pointsOfFunction()
+        then:
+        points[0].getX() == 8.294999999999892
+        points[0].getY() == 752.2923999999753
+        points[points.size()/2].getX() == 1.115
+        points[points.size()/2].getY() == -70.2484
+        points[points.size()-1].getX() == -6.044999999999892
+        points[points.size()-1].getY() == 752.292399999975
+
+        when:
+        a = 0
+        b = 14
+        c = 32
+        quadraticEquation = new QuadraticEquation(a, b, c)
+        points = quadraticEquation.pointsOfFunction()
+        then:
+        points[0].getY() == 750
+        points[0].getX() == 51.285714285714285
+        points[1].getX() == -55.857142857142854
+        points[1].getY() == -750
     }
 }
